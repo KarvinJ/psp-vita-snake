@@ -332,7 +332,7 @@ int main(int argc, char *args[])
     
     controller = SDL_GameControllerOpen(0);
   
-    fontSquare = TTF_OpenFont("square_sans_serif_7.ttf", 22);
+    fontSquare = TTF_OpenFont("square_sans_serif_7.ttf", 11 * scale);
 
     updateTextureText(pauseTexture, "Game Paused", fontSquare, renderer);
 
