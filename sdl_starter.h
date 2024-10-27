@@ -7,12 +7,12 @@
 const int scale = 2;
 
 //psp
-// const int CELL_SIZE = 11;
-// const int CELL_COUNT = 25;
+// const int CELL_SIZE = 10;
+// const int CELL_COUNT = 27;
 
 //vita
-const int CELL_SIZE = 21;
-const int CELL_COUNT = 26;
+const int CELL_SIZE = 10 * scale;
+const int CELL_COUNT = 27;
 
 const int SCREEN_WIDTH = CELL_SIZE * CELL_COUNT;
 const int SCREEN_HEIGHT = CELL_SIZE * CELL_COUNT;

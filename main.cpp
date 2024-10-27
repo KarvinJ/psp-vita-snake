@@ -55,6 +55,8 @@ typedef struct
 
 Food food;
 
+SDL_Rect foodBounds;
+
 int rand_range(int min, int max)
 {
     return min + rand() / (RAND_MAX / (max - min + 1) + 1);
@@ -292,12 +294,12 @@ void render()
     }
 
     SDL_QueryTexture(scoreTexture, NULL, NULL, &scoreBounds.w, &scoreBounds.h);
-    scoreBounds.x = SCREEN_WIDTH / 2 + 90;
+    scoreBounds.x = SCREEN_WIDTH / 2 + 45 * scale;
     scoreBounds.y = scoreBounds.h / 2;
     SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreBounds);
 
     SDL_QueryTexture(highScoreTexture, NULL, NULL, &highScoreBounds.w, &highScoreBounds.h);
-    highScoreBounds.x = 50;
+    highScoreBounds.x = 25 * scale;
     highScoreBounds.y = highScoreBounds.h / 2;
     SDL_RenderCopy(renderer, highScoreTexture, NULL, &highScoreBounds);
 
@@ -313,9 +315,14 @@ void render()
         SDL_RenderFillRect(renderer, &bodyBounds);
     }
 
-    SDL_Rect foodBounds = {food.position.x * CELL_SIZE, food.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE};
+    foodBounds = {food.position.x * CELL_SIZE, food.position.y * CELL_SIZE, CELL_SIZE, CELL_SIZE};
 
     SDL_RenderFillRect(renderer, &foodBounds);
+
+    SDL_RenderDrawLine(renderer, 0, 1, SCREEN_WIDTH, 1);
+    SDL_RenderDrawLine(renderer, 0, SCREEN_HEIGHT - 1, SCREEN_WIDTH, SCREEN_HEIGHT - 1);
+    SDL_RenderDrawLine(renderer, 0, 0, 0, SCREEN_HEIGHT);
+    SDL_RenderDrawLine(renderer, SCREEN_WIDTH - 1, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT);
 
     SDL_RenderPresent(renderer);
 }
@@ -338,7 +345,7 @@ int main(int argc, char *args[])
 
     SDL_QueryTexture(pauseTexture, NULL, NULL, &pauseBounds.w, &pauseBounds.h);
     pauseBounds.x = SCREEN_WIDTH / 2 - pauseBounds.w / 2;
-    pauseBounds.y = 100;
+    pauseBounds.y = 50 * scale;
 
     highScore = loadHighScore();
 
