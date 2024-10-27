@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(complete-template)
+project(snake)
 
 add_executable(${PROJECT_NAME} main.cpp sdl_starter.cpp sdl_assets_loader.cpp)
 
@@ -27,7 +27,7 @@ if(PLATFORM_PSP)
 		TITLE ${PROJECT_NAME}
 	)
 elseif(VITA)
-	set(VITA_TITLEID "INPUT0001") #title length == 9
+	set(VITA_TITLEID "SNAKE0001") #title length == 9
 
 	include("$ENV{VITASDK}/share/vita.cmake" REQUIRED)
 
@@ -39,12 +39,10 @@ elseif(VITA)
 		FILE res/fonts/square_sans_serif_7.ttf square_sans_serif_7.ttf
 		FILE res/sounds/laser.wav laser.wav
 		FILE res/music/music.wav music.wav
-		FILE res/sprites/alien_1.png alien_1.png 
 	)
 endif()
 
 file(COPY res/fonts/square_sans_serif_7.ttf DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY res/sounds/laser.wav DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY res/music/music.wav DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/sprites/alien_1.png DESTINATION ${CMAKE_BINARY_DIR})
 
