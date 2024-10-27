@@ -156,6 +156,8 @@ int loadHighScore()
 
 void resetSnakePosition()
 {
+    highScore = loadHighScore();    
+
     if (score > highScore)
     {
         saveScore();
