@@ -62,7 +62,6 @@ int rand_range(int min, int max)
     return min + rand() / (RAND_MAX / (max - min + 1) + 1);
 }
 
-// check the random position, cuz sometimes sent the food out of bounds.
 Vector2 generateRandomPosition()
 {
     int positionX = rand_range(0, CELL_COUNT - 1);
@@ -77,7 +76,7 @@ Vector2 vector2Add(Vector2 vector1, Vector2 vector2)
 
     return result;
 }
-// Check whether two given vectors are almost equal
+
 int vector2Equals(Vector2 vector1, Vector2 vector2)
 {
     const float EPSILON = 0.000001f;
@@ -89,7 +88,6 @@ int vector2Equals(Vector2 vector1, Vector2 vector2)
 
 double lastUpdateTime = 0;
 
-// method for control the speed that the snake has to move.
 bool eventTriggered(float deltaTime, float intervalUpdate)
 {
     lastUpdateTime += deltaTime;
