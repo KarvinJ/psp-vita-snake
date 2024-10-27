@@ -4,13 +4,8 @@
 #include <iostream>
 
 // psp = 1, vita = 2
-const int scale = 2;
+const int scale = 1;
 
-//psp
-// const int CELL_SIZE = 10;
-// const int CELL_COUNT = 27;
-
-//vita
 const int CELL_SIZE = 10 * scale;
 const int CELL_COUNT = 27;
 

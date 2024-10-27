@@ -106,7 +106,12 @@ bool eventTriggered(float deltaTime, float intervalUpdate)
 
 void saveScore()
 {
-    std::ofstream highScores("high-score.txt");
+    std::string path = "high-score.txt";
+
+    if(scale == 2)
+        path = "ux0:data/high-score.txt";
+
+    std::ofstream highScores(path);
 
     std::string scoreString = std::to_string(score);
     highScores << scoreString;
@@ -118,13 +123,18 @@ int loadHighScore()
 {
     std::string highScoreText;
 
-    std::ifstream highScores("high-score.txt");
+    std::string path = "high-score.txt";
+
+    if(scale == 2)
+        path = "ux0:data/high-score.txt";
+
+    std::ifstream highScores(path);
 
     if (!highScores.is_open())
     {
         saveScore();
 
-        std::ifstream auxHighScores("high-score.txt");
+        std::ifstream auxHighScores(path);
 
         getline(auxHighScores, highScoreText);
 
