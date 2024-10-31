@@ -106,7 +106,7 @@ void saveScore()
     std::string path = "high-score.txt";
 
     if(scale == 2)
-        path = "ux0:data/high-score.txt";
+        path = "ux0:data/SNAKE0001/high-score.txt";
 
     std::ofstream highScores(path);
 
@@ -123,7 +123,7 @@ int loadHighScore()
     std::string path = "high-score.txt";
 
     if(scale == 2)
-        path = "ux0:data/high-score.txt";
+        path = "ux0:data/SNAKE0001/high-score.txt";
 
     std::ifstream highScores(path);
 
